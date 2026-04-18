@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+
+const tagMap = new Map<string, number>();
+const categoryMap = new Map<string, number>();
+
+allPosts.forEach(post => {
+  if (post.data.tags) {
+    post.data.tags.forEach(tag => {
+      tagMap.set(tag, (tagMap.get(tag) || 0) + 1);
+    });
+  }
+  if (post.data.category) {
+    categoryMap.set(post.data.category, (categoryMap.get(post.data.category) || 0) + 1);
+  }
+});
+
+const tags = Array.from(tagMap.entries()).sort((a, b) => b[1] - a[1]);
+const categories = Array.from(categoryMap.entries()).sort((a, b) => b[1] - a[1]);
+---
+
+<Layout title="标签和分类" description="所有文章标签和分类">
+  <div class="page-container">
+    <header class="page-header">
+      <h1 class="page-title">📂 分类</h1>
+      <p class="page-description">共 {categories.length} 个分类</p>
+    </header>
+    
+    <div class="tags-cloud categories-cloud">
+      {categories.map(([category, count]) => {
+        const link = category === '技术' ? '/it' : category === '生活' ? '/my' : `/categories/${encodeURIComponent(category)}`;
+        return (
+          <a href={link} class="tag-item category-item">
+            {category}
+            <span class="tag-count">({count})</span>
+          </a>
+        );
+      })}
+    </div>
+    
+    <header class="page-header">
+      <h1 class="page-title">🏷️ 标签</h1>
+      <p class="page-description">共 {tags.length} 个标签</p>
+    </header>
+    
+    <div class="tags-cloud">
+      {tags.map(([tag, count]) => (
+        <a href={`/tags/${encodeURIComponent(tag)}`} class="tag-item">
+          {tag}
+          <span class="tag-count">({count})</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
+
+<style>
+.category-item {
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.categories-cloud {
+  gap: 12px;
+}
+
+.page-header + .page-header {
+  margin-top: 40px;
+}
+</style>

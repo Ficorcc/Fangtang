@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="说说" description="碎碎念，日常记录">
+  <div class="page-container">
+    <header class="page-header">
+      <h1 class="page-title">💬 说说</h1>
+      <p class="page-description">一些零碎的想法和日常记录</p>
+    </header>
+    
+    <div id="memos-loading" class="empty-state">
+      <div class="empty-state-icon">🔄</div>
+      <h3>正在加载 Memos...</h3>
+      <p>正在从 Memos 获取数据，请稍候...</p>
+    </div>
+    
+    <div id="memos-container" class="memos-container" style="display: none;"></div>
+    
+    <div id="memos-error" class="empty-state" style="display: none;">
+      <div class="empty-state-icon">😢</div>
+      <h3>加载失败</h3>
+      <p>无法获取 Memos 数据，请稍后重试</p>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const MEMOS_API = 'https://memos.ficor.net/api/v1/memos';
+  const LIMIT = 50;
+
+  const formatRelative = (isoTime: string) => {
+    const now = Date.now();
+    const memoTime = new Date(isoTime).getTime();
+    const diff = Math.max(0, Math.floor((now - memoTime) / 1000));
+    if (diff < 60) return '刚刚';
+    if (diff < 3600) return `${Math.floor(diff / 60)} 分钟前`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)} 小时前`;
+    if (diff < 86400 * 7) return `${Math.floor(diff / 86400)} 天前`;
+    const d = new Date(isoTime);
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  };
+
+  const getAttachmentUrl = (attachment: any, memoName: string) => {
+    if (attachment.externalLink) return attachment.externalLink;
+    return `https://memos.ficor.net/file/${attachment.name}`;
+  };
+
+  const renderMemo = (memo: any) => {
+    const time = formatRelative(memo.displayTime || memo.createTime);
+    
+    const images = memo.attachments || [];
+    const imageHtml = images.filter((a: any) => a.type?.startsWith('image/')).slice(0, 9).map((img: any) => `
+      <div class="memo-image-item">
+        <img src="${getAttachmentUrl(img, memo.name)}" alt="" loading="lazy" />
+      </div>
+    `.trim()).join('');
+
+    const tagsHtml = (memo.tags || []).slice(0, 3).map((tag: string) => `
+      <span class="memo-tag">#${tag}</span>
+    `.trim()).join('');
+
+    const textWithoutTags = (memo.content || '').replace(/#\S+/g, '').trim();
+    const hasImages = imageHtml.length > 0;
+    const maxLength = hasImages ? 150 : 100;
+    const shortContent = textWithoutTags.substring(0, maxLength) + (textWithoutTags.length >= maxLength ? '...' : '');
+    
+    const imagesGrid = hasImages ? `
+      <div class="memo-images-grid">
+        ${imageHtml}
+      </div>
+    ` : '';
+
+    return `
+      <article class="memo-card" onclick="window.open('https://memos.ficor.net/', '_blank')">
+        <div class="memo-row ${hasImages ? 'has-images' : ''}">
+          <div class="memo-tags">
+            ${tagsHtml}
+          </div>
+          <div class="memo-content-text">
+            ${shortContent}
+          </div>
+          <span class="memo-time">${time}</span>
+        </div>
+        ${imagesGrid}
+      </article>
+    `.trim();
+  };
+
+  const loadMemos = async () => {
+    const loading = document.getElementById('memos-loading');
+    const container = document.getElementById('memos-container');
+    const error = document.getElementById('memos-error');
+    
+    if (!loading || !container || !error) return;
+    
+    try {
+      const res = await fetch(`${MEMOS_API}?limit=${LIMIT}`, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      
+      const data = await res.json();
+      const memos = data.memos || [];
+      
+      if (memos.length === 0) {
+        loading.style.display = 'none';
+        error.style.display = 'flex';
+        error.querySelector('h3')!.textContent = '暂无说说';
+        error.querySelector('p')!.textContent = '还没有任何 Memos 记录';
+        return;
+      }
+      
+      container.innerHTML = memos.map(renderMemo).join('');
+      loading.style.display = 'none';
+      container.style.display = 'block';
+    } catch (e) {
+      console.error('Failed to load memos:', e);
+      loading.style.display = 'none';
+      error.style.display = 'flex';
+    }
+  };
+
+  if (document.readyState === 'complete') {
+    loadMemos();
+  } else {
+    window.addEventListener('load', loadMemos, { once: true });
+  }
+</script>

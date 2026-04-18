@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="留言" description="访客留言板">
+  <div class="page-container">
+    <header class="page-header">
+      <h1 class="page-title">📝 留言</h1>
+      <p class="page-description">欢迎在这里留下你的足迹</p>
+    </header>
+    
+    <div class="empty-state">
+      <div class="empty-state-icon">💬</div>
+      <h3>评论系统配置中</h3>
+      <p>留言功能正在配置中，敬请期待...</p>
+    </div>
+    
+    <div style="text-align: center; margin-top: 30px;">
+      <p style="color: var(--text-muted); font-size: 14px;">
+        也可以通过邮箱联系我：hello@ficor.net
+      </p>
+    </div>
+  </div>
+</Layout>

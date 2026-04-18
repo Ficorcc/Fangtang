@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { friends } from '../friends';
+---
+
+<Layout title="友链" description="友情链接">
+  <div class="page-container">
+    <header class="page-header">
+      <h1 class="page-title">🔗 友链</h1>
+      <p class="page-description">优秀的博客朋友们</p>
+    </header>
+    
+    <div class="links-grid">
+      {friends.filter(f => f.is_active !== false).map(link => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-card">
+          <img src={link.avatar || 'https://cravatar.cn/avatar/default'} alt={link.name} class="link-avatar" />
+          <div class="link-info">
+            <h3 class="link-name">{link.name}</h3>
+            <p class="link-desc">{link.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+    
+    <div class="apply-section">
+      <div class="apply-icon">🤝</div>
+      <h3>申请友链</h3>
+      <p class="apply-desc">如需交换友链，请前往 <a href="/guestbook.html">留言板</a> 提交申请</p>
+      
+      <div class="apply-rules">
+        <h4>📋 格式要求</h4>
+        <ul>
+          <li><span class="label">站名：</span>你的博客名称</li>
+          <li><span class="label">地址：</span>完整的网站链接</li>
+          <li><span class="label">头像：</span>清晰的 Logo / 头像链接</li>
+          <li><span class="label">简介：</span>一句话介绍你的博客</li>
+        </ul>
+      </div>
+      
+      <div class="apply-rules">
+        <h4>💡 温馨提示</h4>
+        <ul>
+          <li>请先添加本站友链，我会尽快回访</li>
+          <li>网站需持续更新且内容原创</li>
+          <li>本站信息：方糖 · https://blog.ficor.net</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Layout>

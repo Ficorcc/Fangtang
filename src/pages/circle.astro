@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { friends } from '../friends';
+
+const activeFriends = friends.filter(f => f.feed && f.is_active !== false);
+---
+
+<Layout title="博友圈" description="博友圈文章聚合">
+  <div class="page-container">
+    <header class="page-header">
+      <h1 class="page-title">🌐 博友圈</h1>
+      <p class="page-description">
+        <span id="source-text">正在连接聚合 API...</span> · 
+        <span id="loading-status">初始化</span>
+      </p>
+    </header>
+    
+    <div class="posts-container" id="articles-container">
+      <div id="loading-skeleton">
+        {[1,2,3,4,5,6].map(() => (
+          <article class="post-card skeleton">
+            <div class="article-source">
+              <div class="skeleton-text" style="width:80px;height:16px"></div>
+            </div>
+            <div class="skeleton-text" style="width:80%;height:28px;margin:10px 0"></div>
+            <div class="skeleton-text" style="width:100px;height:20px"></div>
+            <div class="skeleton-text" style="width:100%;height:18px;margin-top:12px"></div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const container = document.getElementById('articles-container')!;
+  const skeleton = document.getElementById('loading-skeleton')!;
+  const status = document.getElementById('loading-status')!;
+
+  function formatRelative(isoTime: string) {
+    const now = Date.now();
+    const memoTime = new Date(isoTime).getTime();
+    const diff = Math.max(0, Math.floor((now - memoTime) / 1000));
+    if (diff < 60) return '刚刚';
+    if (diff < 3600) return `${Math.floor(diff / 60)} 分钟前`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)} 小时前`;
+    if (diff < 86400 * 7) return `${Math.floor(diff / 86400)} 天前`;
+    const d = new Date(isoTime);
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }
+
+  function renderArticles(articles: any[]) {
+    const html = articles.map(article => `
+      <article class="post-card fade-in">
+        <div class="article-source">
+          <a href="${article.sourceUrl}" target="_blank" rel="noopener" class="source-name">${article.source}</a>
+        </div>
+        <h2>
+          <a href="${article.link}" target="_blank" rel="noopener">${article.title}</a>
+        </h2>
+        <div class="post-meta">
+          <span class="meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <time>${formatRelative(article.date)}</time>
+          </span>
+        </div>
+        ${article.description ? `<p class="line-clamp-2">${article.description}...</p>` : ''}
+      </article>
+    `).join('');
+    
+    skeleton.remove();
+    container.innerHTML = html;
+  }
+
+  async function fetchArticles() {
+    try {
+      status.textContent = '正在从服务器获取...';
+      
+      const res = await fetch(`/api/rss.json?limit=30&per=3`);
+      const data = await res.json();
+      
+      renderArticles(data.articles);
+      
+      const sourceText = document.getElementById('source-text')!;
+      sourceText.textContent = `${data.source} · ${data.feeds_count} 位博友 · ${data.total} 篇文章`;
+      if (data.duplicates > 0) {
+        sourceText.textContent += ` · 已去重 ${data.duplicates} 篇`;
+      }
+      
+      status.textContent = `已加载 ${data.articles.length} 篇文章`;
+      
+      if (data.failed > 0) {
+        status.textContent += ` · ${data.failed} 个获取失败`;
+      }
+    } catch (e) {
+      status.textContent = '加载失败，正在重试...';
+      setTimeout(fetchArticles, 2000);
+    }
+  }
+
+  fetchArticles();
+</script>
+
+<style>
+#loading-status {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.article-source {
+  margin-bottom: 6px;
+  height: 20px;
+}
+
+.source-name {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.source-name:hover {
+  text-decoration: underline;
+}
+
+article h2 {
+  font-size: 18px;
+  margin: 4px 0 12px;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.skeleton-text {
+  background: linear-gradient(90deg, var(--bg-muted) 25%, #e0e0e0 50%, var(--bg-muted) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  border-radius: 4px;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fade-in 0.4s ease-out;
+}
+</style>

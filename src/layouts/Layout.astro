@@ -1,0 +1,455 @@
+---
+import '../styles/global.css';
+import { siteConfig } from '../config';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+} = Astro.props;
+
+const siteName = siteConfig.title;
+---
+
+<!doctype html>
+<html lang="zh-CN" data-theme="sugar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title === siteName ? siteName : `${title} · ${siteName}`}</title>
+
+  </head>
+  <body>
+    <!-- Top Scroll Progress -->
+    <div class="top-scroll-progress" aria-hidden="true">
+      <div class="top-scroll-progress__bar" id="scroll-bar"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="site-header-inner">
+        <!-- Logo -->
+        <a href="/" class="site-title" aria-label={`${siteName} 首页`}>
+          {siteConfig.logo.show !== 'text' && (
+            <img
+              src={siteConfig.logo.image}
+              alt={siteConfig.logo.alt}
+              class="site-title-logo"
+              loading="eager"
+              width={siteConfig.logo.width}
+              height={siteConfig.logo.height}
+            />
+          )}
+          {siteConfig.logo.show !== 'logo' && (
+            <span class="site-title-text">{siteName}</span>
+          )}
+        </a>
+
+        <!-- Desktop Nav -->
+        <nav class="site-desktop-nav" aria-label="主导航">
+          <a href="/say.html" class="nav-link">说说</a>
+          <a href="/links.html" class="nav-link">友链</a>
+          <a href="/circle.html" class="nav-link">博友圈</a>
+          <a href="/guestbook.html" class="nav-link">留言</a>
+          <a href="/about.html" class="nav-link">关于</a>
+
+          <!-- 更多 dropdown -->
+          <details>
+            <summary>更多</summary>
+            <div class="nav-dropdown-panel" style="right:0;">
+              <a href="/tags.html">标签</a>
+              <a href="/archive.html">归档</a>
+            </div>
+          </details>
+
+          <!-- Search Button -->
+          <button class="nav-icon-btn" id="spotlight-trigger" title="搜索 (⌘K)" aria-label="打开搜索" onclick="window.openSpotlight && window.openSpotlight()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+
+          <!-- Theme Switcher -->
+          <div class="theme-switcher">
+            <button class="theme-trigger" id="theme-toggle" type="button" title="切换主题" aria-label="切换主题">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <span class="theme-trigger-swatch" aria-hidden="true"></span>
+            </button>
+          </div>
+        </nav>
+
+        <!-- Mobile right -->
+        <div class="flex md:hidden items-center gap-2">
+
+
+          <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="菜单">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><line x1="3" y1="12" x2="21" y2="12"></line><line
+                x1="3"
+                y1="6"
+                x2="21"
+                y2="6"></line><line
+                x1="3"
+                y1="18"
+                x2="21"
+                y2="18"></line></svg
+            >
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="site-mobile-menu hidden md:hidden" id="mobile-menu">
+        <a href="/say.html">说说</a>
+        <a href="/links.html">友链</a>
+        <a href="/circle.html">博友圈</a>
+        <a href="/guestbook.html">留言</a>
+        <a href="/about.html">关于</a>
+        <details>
+          <summary style="list-style:none;padding:8px 0;cursor:pointer;text-align:center;">更多</summary>
+          <a href="/tags.html">标签</a>
+          <a href="/archive.html">归档</a>
+        </details>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <slot />
+    </main>
+
+  <!-- Spotlight Search Modal -->
+  <div id="spotlight-overlay" class="spotlight-overlay" aria-hidden="true">
+    <div class="spotlight-modal">
+      <div class="spotlight-search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="spotlight-icon">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="spotlight-input" class="spotlight-input" placeholder="搜索文章..." autocomplete="off" />
+        <kbd class="spotlight-kbd">ESC</kbd>
+      </div>
+      <div class="spotlight-results" id="spotlight-results">
+        <div class="spotlight-empty">
+          <p>🔍 输入关键词开始搜索</p>
+        </div>
+      </div>
+      <div class="spotlight-footer">
+        <span>按 <kbd>↑↓</kbd> 导航 &nbsp; 按 <kbd>↵</kbd> 打开</span>
+      </div>
+    </div>
+  </div>
+
+    <footer class="site-footer">
+      <p>{siteConfig.footer.copyright}</p>
+    </footer>
+
+    <!-- Scroll Buttons -->
+    <div class="scroll-buttons">
+      <button
+        id="back-to-top"
+        class="scroll-btn"
+        aria-label="返回顶部"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><polyline points="18 15 12 9 6 15"></polyline></svg
+        >
+      </button>
+      <button
+        id="go-to-bottom"
+        class="scroll-btn"
+        aria-label="回到底部"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><polyline points="6 9 12 15 18 9"></polyline></svg
+        >
+      </button>
+    </div>
+
+
+
+    <script>
+      // ---- Scroll Progress Bar ----
+      const bar = document.getElementById('scroll-bar');
+      if (bar) {
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const docHeight =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+          bar.style.width = pct + '%';
+        });
+      }
+
+      // ---- Scroll Buttons ----
+      const backTop = document.getElementById('back-to-top') as HTMLElement;
+      const goBottom = document.getElementById('go-to-bottom') as HTMLElement;
+      const scrollButtons = document.querySelector('.scroll-buttons') as HTMLElement;
+      const footer = document.querySelector('.site-footer') as HTMLElement;
+      
+      if (backTop && goBottom && scrollButtons && footer) {
+        backTop.style.display = 'flex';
+        goBottom.style.display = 'flex';
+        
+        const updateButtonsPosition = () => {
+          const footerRect = footer.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          const baseOffset = window.innerWidth <= 768 ? 16 : 24;
+          
+          if (footerRect.top < windowHeight) {
+            const overlap = windowHeight - footerRect.top + baseOffset;
+            scrollButtons.style.bottom = `${overlap}px`;
+          } else {
+            scrollButtons.style.bottom = `${baseOffset}px`;
+          }
+        };
+        
+        window.addEventListener('scroll', updateButtonsPosition);
+        window.addEventListener('resize', updateButtonsPosition);
+        updateButtonsPosition();
+        
+        backTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        goBottom.addEventListener('click', () => {
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
+      }
+
+      // ---- Mobile Menu ----
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      }
+
+      // ---- Nav Dropdown Menu ----
+      const navDetails = document.querySelectorAll<HTMLDetailsElement>('.site-desktop-nav details');
+      
+      navDetails.forEach(detail => {
+        detail.addEventListener('toggle', () => {
+          if (detail.open) {
+            navDetails.forEach(other => {
+              if (other !== detail && other.open) {
+                other.open = false;
+              }
+            });
+          }
+        });
+
+        const dropdownLinks = detail.querySelectorAll('.nav-dropdown-panel a');
+        dropdownLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            detail.open = false;
+          });
+        });
+      });
+
+      document.addEventListener('click', (e) => {
+        navDetails.forEach(detail => {
+          if (detail.open && !detail.contains(e.target as Node)) {
+            detail.open = false;
+          }
+        });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          navDetails.forEach(detail => {
+            detail.open = false;
+          });
+        }
+      });
+
+      // ---- Theme Switcher ----
+      const themeToggle = document.getElementById('theme-toggle');
+      const html = document.documentElement;
+      
+      const themes = ['sugar', 'light', 'dark'];
+      
+      const getCurrentTheme = () => {
+        return html.getAttribute('data-theme') || 'sugar';
+      };
+      
+      const updateThemeIcon = (theme: string) => {
+        const sunSvg = themeToggle?.querySelector('svg');
+        if (!sunSvg) return;
+        if (theme === 'dark') {
+          sunSvg.innerHTML = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>`;
+          sunSvg.setAttribute('stroke-width', '1.9');
+        } else {
+          sunSvg.innerHTML = `<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>`;
+          sunSvg.setAttribute('stroke-width', '2');
+        }
+      };
+      
+      const setTheme = (theme: string) => {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateThemeIcon(theme);
+      };
+      
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else {
+        updateThemeIcon(getCurrentTheme());
+      }
+      
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          const current = getCurrentTheme();
+          const currentIndex = themes.indexOf(current);
+          const nextIndex = (currentIndex + 1) % themes.length;
+          setTheme(themes[nextIndex]);
+        });
+      }
+
+      // ---- Spotlight Search ----
+      const initSpotlight = () => {
+        const spotlightOverlay = document.getElementById('spotlight-overlay');
+        const spotlightTrigger = document.getElementById('spotlight-trigger');
+        const spotlightInput = document.getElementById('spotlight-input') as HTMLInputElement;
+        const spotlightResults = document.getElementById('spotlight-results');
+
+        const openSpotlight = () => {
+          spotlightOverlay?.classList.add('active');
+          setTimeout(() => spotlightInput?.focus(), 100);
+          document.body.style.overflow = 'hidden';
+        };
+
+        (window as any).openSpotlight = openSpotlight;
+
+        const closeSpotlight = () => {
+          spotlightOverlay?.classList.remove('active');
+          if (spotlightInput) spotlightInput.value = '';
+          document.body.style.overflow = '';
+          if (spotlightResults) {
+            spotlightResults.innerHTML = '<div class="spotlight-empty"><p>🔍 输入关键词开始搜索</p></div>';
+          }
+        };
+
+        const searchPosts = (query: string) => {
+          if (!spotlightResults) return;
+          
+          if (!query.trim()) {
+            spotlightResults.innerHTML = '<div class="spotlight-empty"><p>🔍 输入关键词开始搜索</p></div>';
+            return;
+          }
+
+          const q = query.toLowerCase().trim();
+          const results: { title: string; url: string; icon: string }[] = [];
+
+          const quickLinks = [
+            { title: '首页', url: '/', icon: '🏠' },
+            { title: '说说', url: '/say.html', icon: '💬' },
+            { title: '归档', url: '/archive.html', icon: '📅' },
+            { title: '标签', url: '/tags.html', icon: '🏷️' },
+            { title: '友链', url: '/links.html', icon: '🔗' },
+            { title: '留言', url: '/guestbook.html', icon: '📝' },
+            { title: '关于', url: '/about.html', icon: '👋' },
+          ];
+
+          quickLinks.forEach(link => {
+            if (link.title.toLowerCase().includes(q)) {
+              results.push({ ...link });
+            }
+          });
+
+          if (results.length === 0) {
+            spotlightResults.innerHTML = `
+              <div class="spotlight-item" onclick="window.open('https://www.google.com/search?q=${encodeURIComponent(query + ' site:blog.ficor.net')}', '_blank')">
+                <div class="spotlight-item-icon">🌐</div>
+                <div class="spotlight-item-content">
+                  <div class="spotlight-item-title">站内搜索: ${query}</div>
+                  <div class="spotlight-item-desc">使用 Google 搜索本站内容</div>
+                </div>
+              </div>
+            `;
+          } else {
+            spotlightResults.innerHTML = results.map(r => `
+              <div class="spotlight-item" onclick="window.location.href='${r.url}'">
+                <div class="spotlight-item-icon">${r.icon}</div>
+                <div class="spotlight-item-content">
+                  <div class="spotlight-item-title">${r.title}</div>
+                  <div class="spotlight-item-desc">${r.url}</div>
+                </div>
+              </div>
+            `).join('');
+          }
+        };
+
+        spotlightTrigger?.addEventListener('click', openSpotlight);
+
+        spotlightOverlay?.addEventListener('click', (e) => {
+          if (e.target === spotlightOverlay) closeSpotlight();
+        });
+
+        if (spotlightInput) {
+          spotlightInput.addEventListener('input', (e) => {
+            searchPosts((e.target as HTMLInputElement).value);
+          });
+        }
+
+        document.addEventListener('keydown', (e) => {
+          if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            openSpotlight();
+          }
+          if (e.key === 'Escape') {
+            closeSpotlight();
+          }
+        });
+      };
+
+      initSpotlight();
+
+    </script>
+  </body>
+</html>

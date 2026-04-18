@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const itPosts = allPosts.filter(post => 
+  post.data.category === '技术' || 
+  post.data.tags?.some(tag => ['技术', 'IT', '编程', '开发'].includes(tag))
+);
+
+function formatDate(date: Date): string {
+  return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+}
+---
+
+<Layout title="技术" description="技术分享与开发笔记">
+  <div class="page-container">
+    <header class="page-header">
+      <h1 class="page-title">💻 IT 技术</h1>
+      <p class="page-description">技术分享、开发笔记、踩坑记录</p>
+    </header>
+    
+    <div class="posts-container">
+      {itPosts.length > 0 ? (
+        itPosts.map((post) => (
+          <article class="post-card">
+            <h2><a href={post.slug + '.html'}>{post.data.title}</a></h2>
+            <div class="post-meta">
+              <span class="meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+              </span>
+            </div>
+            <p class="line-clamp-4">{post.data.excerpt || post.body.slice(0, 200)}</p>
+          </article>
+        ))
+      ) : (
+        <div class="empty-state">
+          <div class="empty-state-icon">📚</div>
+          <h3>暂无技术文章</h3>
+          <p>技术类文章正在整理中，敬请期待...</p>
+        </div>
+      )}
+    </div>
+  </div>
+</Layout>
