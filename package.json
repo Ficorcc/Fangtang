@@ -8,8 +8,9 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.0.0",
+    "astro": "^6.1.8",
     "fast-xml-parser": "^5.7.1",
+    "marked": "^18.0.2",
     "rss-parser": "^3.13.0"
   }
 }

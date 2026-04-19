@@ -1,0 +1,235 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const PAGE_SIZE = 4;
+
+export async function getStaticPaths() {
+  const PAGE_SIZE = 4;
+  const allPosts = (await getCollection('posts')).sort(
+    (a, b) => b.data.date.getTime() - a.data.date.getTime()
+  );
+  const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
+  
+  const paths = [];
+  for (let i = 2; i <= totalPages; i++) {
+    paths.push({ params: { page: String(i) } });
+  }
+  return paths;
+}
+
+const { page } = Astro.params;
+const pageNum = parseInt(page || '1', 10);
+
+const allPosts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
+const posts = allPosts.slice((pageNum - 1) * PAGE_SIZE, pageNum * PAGE_SIZE);
+
+function formatDate(date: Date): string {
+  return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+}
+
+const MEMOS_SOURCE = 'https://memos.ficor.net/api/v1/memos';
+---
+
+<Layout title={`第 ${pageNum} 页`}>
+  <div class="posts-container">
+
+    <section class="latest-memo-card" id="latest-memo-card" data-source={MEMOS_SOURCE}>
+      <div class="latest-memo-card__inner">
+        <div class="latest-memo-card__head">
+          <div class="latest-memo-card__title-group">
+            <span class="latest-memo-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </span>
+            <h2 class="latest-memo-card__title">最新动态</h2>
+          </div>
+          <time class="latest-memo-card__time" id="memo-time">载入中</time>
+        </div>
+        <div class="latest-memo-card__body">
+          <div class="latest-memo-card__quote-mark"></div>
+          <div class="latest-memo-card__content" id="memo-content">
+            正在同步 Memos 最新一条记录...
+          </div>
+        </div>
+        <div class="latest-memo-card__images hidden" id="memo-images"></div>
+        <div class="latest-memo-card__footer">
+          <div class="latest-memo-card__tags" id="memo-tags">
+            <span class="latest-memo-card__tag">#Memos</span>
+          </div>
+          <a class="latest-memo-card__link" id="memo-link" href="https://memos.ficor.net/" target="_blank" rel="noopener noreferrer">
+            <span>查看原文</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="7" y1="17" x2="17" y2="7"></line>
+              <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="latest-memo-card__glow"></div>
+    </section>
+
+    {posts.map((post) => (
+      <article class="post-card">
+        <h2><a href={'/' + post.slug + '.html'}>{post.data.title}</a></h2>
+        <div class="post-meta">
+          <span class="meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+          </span>
+          {post.data.category && (
+            <span class="meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <a href={post.data.category === '技术' ? '/it' : post.data.category === '生活' ? '/my' : `/categories/${encodeURIComponent(post.data.category)}`} class="category-link">{post.data.category}</a>
+            </span>
+          )}
+          {post.data.tags && post.data.tags.length > 0 && (
+            <span class="meta-item">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7.01" y2="7"></line>
+              </svg>
+              <span class="flex flex-wrap gap-2">
+                {post.data.tags.map((tag) => (
+                  <a href={`/tags/${encodeURIComponent(tag)}`} class="tag-text">{tag}</a>
+                ))}
+              </span>
+            </span>
+          )}
+        </div>
+        <p class="line-clamp-4">{post.data.excerpt || post.body.slice(0, 200)}</p>
+      </article>
+    ))}
+
+    <nav class="pagination" aria-label="分页导航">
+      {pageNum > 2 ? (
+        <a href="/" class="pagination-btn" title="第一页">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="17 18 11 12 17 6"></polyline>
+            <polyline points="11 18 5 12 11 6"></polyline>
+          </svg>
+        </a>
+      ) : null}
+
+      {pageNum > 1 ? (
+        <a href={pageNum === 2 ? '/' : `/page/${pageNum - 1}.html`} class="pagination-btn" title="上一页">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </a>
+      ) : (
+        <span class="pagination-btn pagination-btn-disabled" title="已是第一页">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </span>
+      )}
+
+      <span class="pagination-current">第 {pageNum} 页</span>
+
+      {pageNum < totalPages ? (
+        <a href={`/page/${pageNum + 1}.html`} class="pagination-btn" title="下一页">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      ) : (
+        <span class="pagination-btn pagination-btn-disabled" title="已是最后一页">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </span>
+      )}
+
+      {pageNum < totalPages - 1 ? (
+        <a href={`/page/${totalPages}.html`} class="pagination-btn" title="最后一页">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="7 18 13 12 7 6"></polyline>
+            <polyline points="13 18 19 12 13 6"></polyline>
+          </svg>
+        </a>
+      ) : null}
+    </nav>
+
+  </div>
+</Layout>
+
+<script>
+  (() => {
+    const card = document.getElementById('latest-memo-card');
+    if (!card) return;
+    const source = card.getAttribute('data-source');
+    if (!source) return;
+
+    const timeEl = document.getElementById('memo-time');
+    const contentEl = document.getElementById('memo-content');
+    const imagesEl = document.getElementById('memo-images');
+    const tagsEl = document.getElementById('memo-tags');
+    const linkEl = document.getElementById('memo-link');
+
+    const formatRelative = (isoTime: string) => {
+      const now = Date.now();
+      const memoTime = new Date(isoTime).getTime();
+      const diff = Math.max(0, Math.floor((now - memoTime) / 1000));
+      if (diff < 60) return '刚刚';
+      if (diff < 3600) return `${Math.floor(diff / 60)} 分钟前`;
+      if (diff < 86400) return `${Math.floor(diff / 3600)} 小时前`;
+      if (diff < 86400 * 7) return `${Math.floor(diff / 86400)} 天前`;
+      const d = new Date(isoTime);
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    };
+
+    const getAttachmentUrl = (attachment: any, memoName: string) => {
+      if (attachment.externalLink) return attachment.externalLink;
+      const memoId = memoName.split('/')[1];
+      return `https://memos.ficor.net/file/${attachment.name}`;
+    };
+
+    const load = async () => {
+      try {
+        const res = await fetch(`${source}?t=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const memo = Array.isArray(data) ? data[0] : Array.isArray(data.memos) ? data.memos[0] : null;
+        if (!memo) throw new Error('No memo found');
+
+        timeEl && (timeEl.textContent = formatRelative(memo.createdTs ? new Date(memo.createdTs * 1000).toISOString() : memo.createdAt || memo.updateTime));
+        contentEl && (contentEl.textContent = memo.content || memo.payload || '暂无内容');
+
+        const images = memo.resources || memo.attachments || [];
+        if (images.length > 0 && imagesEl) {
+          imagesEl.classList.remove('hidden');
+          imagesEl.innerHTML = images.slice(0, 3).map((img: any) =>
+            `<img src="${getAttachmentUrl(img, memo.name || '')}" class="memo-image" loading="lazy" alt="" />`
+          ).join('');
+        }
+
+        const tags = memo.content?.match(/#[\w\u4e00-\u9fa5]+/g) || [];
+        if (tags.length > 0 && tagsEl) {
+          tagsEl.innerHTML = tags.slice(0, 3).map((t: string) => `<span class="latest-memo-card__tag">${t}</span>`).join('');
+        }
+
+        const memoId = memo.id || memo.name?.split('/')[1];
+        if (memoId && linkEl) {
+          linkEl.href = `https://memos.ficor.net/m/${memoId}`;
+        }
+      } catch {
+        contentEl && (contentEl.textContent = '同步 Memos 最新动态失败');
+      }
+    };
+
+    load();
+  })();
+</script>

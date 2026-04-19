@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { siteConfig } from '../config';
+import { getCollection } from 'astro:content';
 
 export interface Props {
   title?: string;
@@ -13,6 +14,18 @@ const {
 } = Astro.props;
 
 const siteName = siteConfig.title;
+
+const allPosts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const searchData = allPosts.map(post => ({
+  title: post.data.title,
+  url: `/${post.slug}.html`,
+  icon: '📄',
+  tags: post.data.tags || [],
+  category: post.data.category || ''
+}));
 ---
 
 <!doctype html>
@@ -23,7 +36,9 @@ const siteName = siteConfig.title;
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title === siteName ? siteName : `${title} · ${siteName}`}</title>
-
+    <script define:vars={{ searchData: JSON.stringify(searchData) }}>
+      window.postsSearchData = JSON.parse(searchData);
+    </script>
   </head>
   <body>
     <!-- Top Scroll Progress -->
@@ -69,7 +84,7 @@ const siteName = siteConfig.title;
           </details>
 
           <!-- Search Button -->
-          <button class="nav-icon-btn" id="spotlight-trigger" title="搜索 (⌘K)" aria-label="打开搜索" onclick="window.openSpotlight && window.openSpotlight()">
+          <button class="nav-icon-btn" id="spotlight-trigger" title="搜索 (⌘K)" aria-label="打开搜索">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -97,8 +112,6 @@ const siteName = siteConfig.title;
 
         <!-- Mobile right -->
         <div class="flex md:hidden items-center gap-2">
-
-
           <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="菜单">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -396,20 +409,28 @@ const siteName = siteConfig.title;
             { title: '关于', url: '/about.html', icon: '👋' },
           ];
 
+          const posts = (window as any).postsSearchData || [];
+          
           quickLinks.forEach(link => {
             if (link.title.toLowerCase().includes(q)) {
               results.push({ ...link });
             }
           });
 
+          posts.forEach((post: { title: string; url: string; icon: string; tags?: string[]; category?: string }) => {
+            const matchTitle = post.title.toLowerCase().includes(q);
+            const matchTags = post.tags?.some(tag => tag.toLowerCase().includes(q));
+            const matchCategory = post.category?.toLowerCase().includes(q);
+            
+            if (matchTitle || matchTags || matchCategory) {
+              results.push({ ...post });
+            }
+          });
+
           if (results.length === 0) {
             spotlightResults.innerHTML = `
-              <div class="spotlight-item" onclick="window.open('https://www.google.com/search?q=${encodeURIComponent(query + ' site:blog.ficor.net')}', '_blank')">
-                <div class="spotlight-item-icon">🌐</div>
-                <div class="spotlight-item-content">
-                  <div class="spotlight-item-title">站内搜索: ${query}</div>
-                  <div class="spotlight-item-desc">使用 Google 搜索本站内容</div>
-                </div>
+              <div class="spotlight-empty">
+                <p>🔍 未找到相关结果</p>
               </div>
             `;
           } else {
@@ -431,9 +452,55 @@ const siteName = siteConfig.title;
           if (e.target === spotlightOverlay) closeSpotlight();
         });
 
+        let selectedIndex = -1;
+
+        const updateSelection = () => {
+          const items = spotlightResults?.querySelectorAll('.spotlight-item');
+          if (!items) return;
+          
+          items.forEach((item, i) => {
+            if (i === selectedIndex) {
+              item.classList.add('selected');
+              item.scrollIntoView({ block: 'nearest' });
+            } else {
+              item.classList.remove('selected');
+            }
+          });
+        };
+
+        const navigateToSelected = () => {
+          const items = spotlightResults?.querySelectorAll('.spotlight-item');
+          if (items && selectedIndex >= 0 && items[selectedIndex]) {
+            (items[selectedIndex] as HTMLElement).click();
+          }
+        };
+
         if (spotlightInput) {
           spotlightInput.addEventListener('input', (e) => {
             searchPosts((e.target as HTMLInputElement).value);
+            selectedIndex = -1;
+          });
+
+          spotlightInput.addEventListener('keydown', (e) => {
+            const items = spotlightResults?.querySelectorAll('.spotlight-item');
+            const itemCount = items?.length || 0;
+
+            if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              selectedIndex = Math.min(selectedIndex + 1, itemCount - 1);
+              updateSelection();
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              selectedIndex = Math.max(selectedIndex - 1, 0);
+              updateSelection();
+            } else if (e.key === 'Enter') {
+              e.preventDefault();
+              if (selectedIndex >= 0) {
+                navigateToSelected();
+              } else if (itemCount > 0) {
+                (items?.[0] as HTMLElement)?.click();
+              }
+            }
           });
         }
 
@@ -441,9 +508,11 @@ const siteName = siteConfig.title;
           if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
             e.preventDefault();
             openSpotlight();
+            selectedIndex = -1;
           }
           if (e.key === 'Escape') {
             closeSpotlight();
+            selectedIndex = -1;
           }
         });
       };

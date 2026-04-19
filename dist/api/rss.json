@@ -2,10 +2,110 @@
   "source": "双 API 聚合",
   "lilog_count": 50,
   "jh_count": 100,
-  "feeds_count": 31,
-  "total": 113,
-  "duplicates": 37,
+  "feeds_count": 41,
+  "total": 106,
+  "duplicates": 44,
   "articles": [
+    {
+      "id": "jh_MjYtMDQvNjkuaHRtbA==",
+      "title": "《斩劫人》尾声",
+      "link": "https://fengwu.art/2026-04/69.html",
+      "date": "2026-04-19 12:31:31",
+      "timestamp": 1776573091000,
+      "description": "本文为 Vind 使用 Kimi写的第一篇短篇小说，属于半原创，半AI出品：十年后。洛阳旧墟的废观已被修葺过，漏雨的瓦檐补了新的茅草，门槛被踏出一道浅坑。每逢初一十五，有个盲眼老妇人会来坐上一整日，以麻布擦拭一柄百裂的刀。这日来了个少年方士",
+      "source": "风舞心弦",
+      "sourceUrl": "https://fengwu.art"
+    },
+    {
+      "id": "lilog_MjYtMDQvNjguaHRtbA==",
+      "title": "《斩劫人》第三章：照胆",
+      "link": "https://fengwu.art/2026-04/68.html",
+      "date": "2026-04-19 10:50",
+      "timestamp": 1776567014000,
+      "description": "本文为 Vind 使用 Kimi写的第一篇短篇小说，属于半原创，半AI出品：终南山的雪落在六月，是左慈一脉最后的手段。沈无渡与陈知微抵达时，墓前已站着一个人。或者说，一个影子——与六十年前那个雪夜一模一样的身形，负手而立，微微侧头，像在听什",
+      "source": "风舞心弦",
+      "sourceUrl": "https://fengwu.art"
+    },
+    {
+      "id": "lilog_Ni0wNC8yMjk0Lmh0bWw=",
+      "title": "[转载] 一个人财富自由之后，也是不快乐的",
+      "link": "https://note-star.cn/2026-04/2294.html",
+      "date": "2026-04-19 10:32",
+      "timestamp": 1776565925000,
+      "description": "多巴胺式享受，物质和消费享受都是低阶的。内啡肽式享受，升华自己的内心，长久深远。如何找到存在感？1. 高度存在并被人看到的工作。2. 在集体环境中得到认可。3. 实现心中的理想。财富自由之后，最大的期望就是有个工作。自我实现。你想赚多少钱，",
+      "source": "笔记星球",
+      "sourceUrl": "https://note-star.cn"
+    },
+    {
+      "id": "lilog_M3YuaGsvcG9zdC80Mw==",
+      "title": "启东话托福考试资料",
+      "link": "https://www.3v.hk/post/43",
+      "date": "2026-04-19 10:01",
+      "timestamp": 1776564060000,
+      "description": "第１句：哈特虎 （意思是不可能发生的事情他还在那边吹） 第２句：握空 （意思跟上面那句差不多拉）第３句：康忙头 （意思是厕所）第４句：污子 （意思是笨蛋）第４句：污特西西（意思是你这人精神上有病） 第５句：西跨了 （骂你要死啊）第６句：瞎扎",
+      "source": "允赫先森",
+      "sourceUrl": "https://www.3v.hk"
+    },
+    {
+      "id": "lilog_MjYtMDQvNjcuaHRtbA==",
+      "title": "《斩劫人》第二章：旧债",
+      "link": "https://fengwu.art/2026-04/67.html",
+      "date": "2026-04-19 09:20",
+      "timestamp": 1776561610000,
+      "description": "本文为 Vind 使用 Kimi写的第一篇短篇小说，属于半原创，半AI出品：长安城的春分，是柳絮与符灰一同飞的季节。沈无渡入城时，正赶上镇劫司在朱雀大街焚尸。七具尸体，皆是三日前去观陈知微劫象的司员，死状各异——有的溺毙于空无一物的丹房，有",
+      "source": "风舞心弦",
+      "sourceUrl": "https://fengwu.art"
+    },
+    {
+      "id": "lilog_MjYtMDQvNjYuaHRtbA==",
+      "title": "《斩劫人》第一章：赊命",
+      "link": "https://fengwu.art/2026-04/66.html",
+      "date": "2026-04-19 07:47",
+      "timestamp": 1776556041000,
+      "description": "本文为 Vind 使用 Kimi写的第一篇短篇小说，属于半原创，半AI出品：惊蛰无雷。洛阳旧墟的废观里，沈无渡数着瓦缝漏下的雨。三七二十一滴，恰是少年跪地的时辰。\"先生，\"少年额头抵着青砖，声音发颤，\"他们说您能斩劫。\"沈无渡没应声。他的刀",
+      "source": "风舞心弦",
+      "sourceUrl": "https://fengwu.art"
+    },
+    {
+      "id": "lilog_aS16aG9uZy1zaGFuLw==",
+      "title": "读《陶庵梦忆》（二、锺山）",
+      "link": "https://justgoidea.com/du-tao-an-meng-yi-zhong-shan/",
+      "date": "2026-04-19 02:28",
+      "timestamp": 1776536880000,
+      "description": "细读张岱《陶庵梦忆·锺山》：从四人袖中所志的天命气魄，到祭殿里「莫惊驾」的屏息荒诞，再到最后「不得一盂麦饭」的归零。一个目击者如何用账本式的精确，记下一个王朝散去之前的所有不对劲。",
+      "source": "JustGoIdea",
+      "sourceUrl": "https://justgoidea.com"
+    },
+    {
+      "id": "lilog_LzAwMDI0My8uaHRtbA==",
+      "title": "摄影习作: 缝隙里的东方微笑",
+      "link": "https://fengcblog.880200.xyz/article/000243/.html",
+      "date": "2026-04-19 00:09",
+      "timestamp": 1776528580000,
+      "description": "发布日期: 2026-04-19",
+      "source": "Fengc's Blog",
+      "sourceUrl": "https://fengcblog.880200.xyz"
+    },
+    {
+      "id": "lilog_MjYtMDQvNTQuaHRtbA==",
+      "title": "Fotografiska 上海分馆 11",
+      "link": "https://fengwu.art/2026-04/54.html",
+      "date": "2026-04-18 22:11",
+      "timestamp": 1776521465000,
+      "description": "Fotografiska 是 2010 年创始于瑞典斯德哥尔摩的国际影像艺术机构，聚焦摄影与当代视觉艺术，以巡回展览、文化活动及复合型体验空间为特色。上海 Fotografiska 作为其亚洲首站，在静安区苏州河畔的百空间光三分库（1931",
+      "source": "风舞心弦",
+      "sourceUrl": "https://fengwu.art"
+    },
+    {
+      "id": "lilog_eS5jb20vMTk4Lmh0bWw=",
+      "title": "还是感受到了经济大环境的压力",
+      "link": "https://ayayy.com/198.html",
+      "date": "2026-04-18 22:05",
+      "timestamp": 1776521100000,
+      "description": "由于今年工作变动，只在省内各地市短期工作，和之前在一个地方一待就是1年起步不一样了，我之前买的地平线8号的28寸行李箱该说不说有点大了，一直在犹豫要不要买个24寸的来用。之前家里有个20的李宁的...",
+      "source": "哎呀哎呀呀",
+      "sourceUrl": "https://ayayy.com"
+    },
     {
       "id": "lilog_dmVzLzQ2NDMuaHRtbA==",
       "title": "学生打架家长报警，而我全程不知情！",
@@ -97,6 +197,16 @@
       "sourceUrl": "https://fengwu.art"
     },
     {
+      "id": "jh_LmNvbS8zMDY2Lmh0bWw=",
+      "title": "千亿身价雷总，一早连续直播 15 小时，劳模人设焊死",
+      "link": "https://www.aiwazi.com/3066.html",
+      "date": "2026-04-18 13:35:45",
+      "timestamp": 1776490545000,
+      "description": "最近又被雷总圈粉了，原因是雷总的一款新车发布，雷总要亲自测试这款车的续航能力，挑战中途只充一次电的长途续航测试。 一早上班出门的时候就看到雷总已经在测试了，不得不感叹，雷总亲自出马还这么拼，这精力比很多年轻人都好啊。 连续直播 15 个小时",
+      "source": "爱娃子",
+      "sourceUrl": "https://www.aiwazi.com"
+    },
+    {
       "id": "lilog_Y2V2cy5jb20vNDg5NC8=",
       "title": "硬币的变化",
       "link": "https://acevs.com/4894/",
@@ -127,6 +237,16 @@
       "sourceUrl": "https://fengwu.art"
     },
     {
+      "id": "lilog_Zy13cml0ZXIuaHRtbA==",
+      "title": "inBox 笔记还可以做得更好",
+      "link": "https://blog.gudong.site/2026/04/18/inbox-future-gudong-writer.html",
+      "date": "2026-04-18 08:00",
+      "timestamp": 1776470400000,
+      "description": "最近这段时间一直在频繁更新inBox笔记，越更新越觉得不够好。很多细节、体验、设计，还有很大的提升空间。先说数据同步吧，这段时间花了不少时间在优化，重新设计了一套新的同步方案——原子数据格式，一篇笔记一个JSON文件。我自己对这个方案...",
+      "source": "咕咚同学",
+      "sourceUrl": "https://blog.gudong.site"
+    },
+    {
       "id": "lilog_LzAwMDI0Mi8uaHRtbA==",
       "title": "摄影习作: 麦积神秀",
       "link": "https://fengcblog.880200.xyz/article/000242/.html",
@@ -145,6 +265,16 @@
       "description": "Fotografiska 是 2010 年创始于瑞典斯德哥尔摩的国际影像艺术机构，聚焦摄影与当代视觉艺术，以巡回展览、文化活动及复合型体验空间为特色，在柏林、塔林等地设有分馆。 上海 Fotografiska 作为其亚洲首站，2023 年 ",
       "source": "风舞心弦",
       "sourceUrl": "https://fengwu.art"
+    },
+    {
+      "id": "jh_NyVhMyVlOCU4ZCVhZi8=",
+      "title": "酒和梦是四月的解药",
+      "link": "https://shioriblog.org/2026/04/17/%e9%85%92%e5%92%8c%e6%a2%a6%e6%98%af%e5%9b%9b%e6%9c%88%e7%9a%84%e8%a7%a3%e8%8d%af/",
+      "date": "2026-04-17 23:55:48",
+      "timestamp": 1776441348000,
+      "description": "从温哥华回来之后，就一直被生活所追赶。\n\n\n\n浴缸的下水道堵塞了，马桶需要清洁了，厨房的地板需要吸尘，餐桌上摆满了杂物，每天要做饭，需要买菜，需要想：我的身体到底想吃什么？\n\n\n\n我渐渐被这些无形的琐事压着，喘不过气来。\n\n\n\n有好几次，晚",
+      "source": "独居日记",
+      "sourceUrl": "https://shioriblog.org"
     },
     {
       "id": "lilog_YW4uY24vMTExNjg3Lw==",
@@ -205,6 +335,16 @@
       "description": "老婆这几天学习理财知识，感叹家里这些年都是一笔糊涂账，不知道一年的收入和开支具体数目，头脑发热说要记账了。网上找了一些app，都说很麻烦，于是想着借助 Ai 写一款记账软件，基于PHP 8.4 和 MySql ,说干就干，经过 Ai 大约 ",
       "source": "飞絮落叶雪",
       "sourceUrl": "https://www.mrhe.net"
+    },
+    {
+      "id": "jh_dmVzLzExOTguaHRtbA==",
+      "title": "听到被裁员的那天，我笑了",
+      "link": "https://www.qynest.cn/archives/1198.html",
+      "date": "2026-04-17 18:47:00",
+      "timestamp": 1776422820000,
+      "description": "最近公司里都在讨论裁员的事儿。周三快下班的时候，项目经理单独找我聊，说因为项目没签合同，系统运维维保费又少得可怜，公司打算精简调整，把这个项目合并到其他项目里，我就在这次被优化的名单里。听到这话的时候愣了一下。其实也在意料之中，现场经理已经",
+      "source": "清云小栈",
+      "sourceUrl": "https://www.qynest.cn"
     },
     {
       "id": "lilog_MjYtMDQvNDYuaHRtbA==",
@@ -325,6 +465,16 @@
       "description": "\n牛津高阶第 11 版出版已有三个多月，目前仅在印度本土印刷上架实体书，东非等部分地区也有发售，这与人们的传统认知并不相符。毕竟，中国才是全球最大的英语学习市场。\n不过，国内主要引进的一直是英汉双解版本，外研社近十几年来也极少出版纯英英词典",
       "source": "且听书吟",
       "sourceUrl": "https://yufan.me"
+    },
+    {
+      "id": "lilog_cmNoaXZlcy8xMjI3Lw==",
+      "title": "生活碎碎念：如何绘制清明拜山图",
+      "link": "https://blog.mfwt.top/index.php/archives/1227/",
+      "date": "2026-04-16 22:59",
+      "timestamp": 1776351580000,
+      "description": "清明拜山图，不是清明上河图。我也想，但毕竟笔者不是什么画家，真要拿到一张纸一支笔，画出来恐怕也只是『太阳草地房子』之类的儿童简笔画罢了。最近好像没有什么精力，随便写点什么吧，就当作是维持博客的更新了。",
+      "source": "枫林灯语",
+      "sourceUrl": "https://blog.mfwt.top"
     },
     {
       "id": "jh_bmVzZS1icmVha2Zhc3Qv",
@@ -477,40 +627,50 @@
       "sourceUrl": "https://fengwu.art"
     },
     {
-      "id": "lilog_Y2V2cy5jb20vNDg5MC8=",
+      "id": "jh_Y2V2cy5jb20vNDg5MC8=",
       "title": "AI工具",
       "link": "https://acevs.com/4890/",
-      "date": "2026-04-16 09:38",
+      "date": "2026-04-16 09:38:26",
       "timestamp": 1776303506000,
       "description": "AI工具测试员 俺喜欢测试各种软件工具，可能用的不多，或者大炮打蚊子的用法，比如用claw转换个文件格式markdwn转换成pdf或者html，本来截图ocr识别微信读书截图，让claw识别一下，花了200万多token然后由于orc引擎 ",
       "source": "ACEVS",
       "sourceUrl": "https://acevs.com"
     },
     {
-      "id": "lilog_d2hhdHMtYS04ay1jYXIv",
+      "id": "jh_eS5jb20vMTkzLmh0bWw=",
+      "title": "一场和包包大人并肩的战斗",
+      "link": "https://ayayy.com/193.html",
+      "date": "2026-04-16 08:59:00",
+      "timestamp": 1776301140000,
+      "description": "今天溜达的时候，看见一个Ty清理插件，想着弄回来研究研究，刚睡醒也没仔细看，稀里糊涂点了全部优化，当时我就感觉不对劲了，果然一刷新，博客炸了，提示内部服务器问题。错误排查这就有点不讲理了，这怎么牵扯到服务器了，我寻思这插件再牛X也不能直接去",
+      "source": "哎呀哎呀呀",
+      "sourceUrl": "https://ayayy.com"
+    },
+    {
+      "id": "jh_d2hhdHMtYS04ay1jYXIv",
       "title": "4K/8K汽车是什么？",
       "link": "https://lawtee.com/article/whats-a-8k-car/",
-      "date": "2026-04-16 08:46",
+      "date": "2026-04-16 08:46:10",
       "timestamp": 1776300370000,
-      "description": "进入2026年，这油价简直是“开挂”了一样涨。以前加满一箱油能吃顿好的，现在加满一箱油，感觉像是给中石化打了一周的白工。每踩一脚油门，脑子里蹦出来的都是五毛、一块、一块五…… 于是，我终于下定决心，是时候告别燃油时代，换辆纯电车了。 但一入",
+      "description": "进入2026年，这油价简直是“开挂”了一样涨。以前加满一箱油能吃顿好的，现在加满一箱油，感觉像是给中石化打了一周的白工。每踩一脚油门，脑子里蹦出来的都是五毛、一块、一块五……\n于是，我终于下定决心，是时候告别燃油时代，换辆纯电车了。\n但一入",
       "source": "老T博客",
       "sourceUrl": "https://lawtee.com"
     },
     {
-      "id": "lilog_b25nLXdyaXRlci5odG1s",
+      "id": "jh_b25nLXdyaXRlci5odG1s",
       "title": "不是每天都有话说",
       "link": "https://blog.gudong.site/2026/04/16/day50-gudong-writer.html",
-      "date": "2026-04-16 08:00",
+      "date": "2026-04-16 08:00:00",
       "timestamp": 1776297600000,
       "description": "不是每天都有话说今天早晨刷到了罗振宇的Day50视频日记，他更新视频日记已经50天了。当然，今天其实应该是第52还是53天了，我只是刚好刷到了第50天那条。他说了很多我想说的话😂作为一个日更作者，确实不是每天都有话说。他也提到有时候会..",
       "source": "咕咚同学",
       "sourceUrl": "https://blog.gudong.site"
     },
     {
-      "id": "lilog_dGljbGUvZXYtY2FyLw==",
+      "id": "jh_dGljbGUvZXYtY2FyLw==",
       "title": "油价太贵，准备换个纯电车，但不知道换什么好",
       "link": "https://lawtee.com/article/ev-car/",
-      "date": "2026-04-16 06:26",
+      "date": "2026-04-16 06:26:37",
       "timestamp": 1776291997000,
       "description": "最近每次进加油站，心都在滴血。看着跳动的油费表，终于下定决心，是时候告别燃油车，换一辆纯电车了。 但选车的过程比我想象中要纠结得多，仔细研究了从几万块到三四十万价格内几乎所有主流纯电汽车情况，看了无数视频分析和参数对比，硬是不知道如何下手。",
       "source": "老T博客",
@@ -527,44 +687,54 @@
       "sourceUrl": "https://www.baidage.com"
     },
     {
-      "id": "lilog_ZS1zLVRlcm1zLmh0bWw=",
+      "id": "jh_ZS1zLVRlcm1zLmh0bWw=",
       "title": "结束在他人规则下的生活",
       "link": "https://blog.bxaw.name/archives/An-End-to-Living-on-Someone-Else-s-Terms.html",
-      "date": "2026-04-16 04:01",
+      "date": "2026-04-16 04:01:00",
       "timestamp": 1776283260000,
       "description": "来这个城市十多年了，终于有了一套属于自己的房子。之所以要考虑买房，一方面是房地产泡沫的破碎，让曾经高不可攀的价格，突然变得「可以谈一谈」了。另一方面，是实在受够了看房东脸色生活的日子，以及频繁搬家的疲惫。从来到这个城市，到这次搬进自己的房子",
       "source": "白熊阿丸的小屋",
       "sourceUrl": "https://blog.bxaw.name"
     },
     {
-      "id": "lilog_cmNoaXZlcy8xNTI2Lw==",
+      "id": "jh_cmNoaXZlcy8xNTI2Lw==",
       "title": "松声｜廿六年·四月中·桐花开",
       "link": "https://xyzbz.cn/archives/1526/",
-      "date": "2026-04-16 03:28",
-      "timestamp": 1776281300000,
+      "date": "2026-04-16 03:28:00",
+      "timestamp": 1776281280000,
       "description": "春天的风景春天多出去转转，感受春天带来一丝万物生长的气息，调节自己疲惫的身心。[photos][/photos][photos][/photos][photos][/photos]定期四季定期景色拍了四季，可能大部分博友都忽略了文章中这段，",
       "source": "子夜松声",
       "sourceUrl": "https://xyzbz.cn"
     },
     {
-      "id": "lilog_MjYtMDQvMzkuaHRtbA==",
+      "id": "jh_MjYtMDQvMzkuaHRtbA==",
       "title": "沈荡 4 丰义山",
       "link": "https://fengwu.art/2026-04/39.html",
-      "date": "2026-04-16 00:34",
+      "date": "2026-04-16 00:34:43",
       "timestamp": 1776270883000,
       "description": "2025 年 11 月底参加了32 号徒步的浙江嘉兴沈荡古镇徒步。徒步最主要的还是爬山吧，这是最后的山间夕阳：当日有人结婚，上面两张分别是一群伴娘和新婚夫妇结婚照。下面这张日落，我也很喜欢：这也是32元一日游的项目😄",
       "source": "风舞心弦",
       "sourceUrl": "https://fengwu.art"
     },
     {
-      "id": "lilog_NDIwMjY5NTE5Lmh0bWw=",
+      "id": "jh_NDIwMjY5NTE5Lmh0bWw=",
       "title": "个人独立博客站点平均生命周期有多长，坚持的意义是什么？",
       "link": "https://feng.pub/0420269519.html",
-      "date": "2026-04-15 23:27",
+      "date": "2026-04-15 23:27:35",
       "timestamp": 1776266855000,
-      "description": "这篇文章似乎在说坚持没有用，但还是希望能多坚持一下。但是无论如何，一定要用第三视角看当前的坚持，只有视角才能得到正确答案。 有一种坚持叫做，不知道为什么而坚持。也许我们都听过这些话：坚持就是胜利；坚持就能成功；坚持总会成你想成为的人。 坚持",
+      "description": "这篇文章似乎在说坚持没有用，但还是希望能多坚持一下。但是无论如何，一定要用第三视角看当前的坚持，只有视角才能得到正确答案。  有一种坚持叫做，不知道为什么而坚持。也许我们都听过这些话：坚持就是胜利；坚持就能成功；坚持总会成你想成为的人。 坚",
       "source": "阿锋的小宇宙",
       "sourceUrl": "https://feng.pub"
+    },
+    {
+      "id": "jh_eWJsb2cuY24vNTM2OS8=",
+      "title": "不要因为AI使自己的停止思考！",
+      "link": "https://jyblog.cn/5369/",
+      "date": "2026-04-15 23:08:46",
+      "timestamp": 1776265726000,
+      "description": "注意：本文章纯人工编写，没有一点AI的参与。 最近用Vibe coding，主要是现在用AI写代码方便，以前的 [&#8230;]",
+      "source": "倦意博客",
+      "sourceUrl": "https://jyblog.cn"
     },
     {
       "id": "jh_dGl0bGVkLTIwMjYwNDE1",
@@ -597,10 +767,10 @@
       "sourceUrl": "https://yufan.me"
     },
     {
-      "id": "lilog_MjYtMDQvMzguaHRtbA==",
+      "id": "jh_MjYtMDQvMzguaHRtbA==",
       "title": "沈荡 3 老街",
       "link": "https://fengwu.art/2026-04/38.html",
-      "date": "2026-04-15 20:28",
+      "date": "2026-04-15 20:28:06",
       "timestamp": 1776256086000,
       "description": "2025 年 11 月底参加了 32 号徒步的浙江嘉兴沈荡古镇徒步，主要是 3 块区域：艺术谷仓、沈荡老街、丰义山村。同样也是存下几十张照片，分多次发布。下面这两张是连在一块儿的：我最喜欢的其实是这张肯德基的车，虽然觉得它很有可能是冒牌货\ud83e",
       "source": "风舞心弦",
@@ -617,24 +787,34 @@
       "sourceUrl": "https://www.pgoj.top"
     },
     {
-      "id": "lilog_MjYtMDQvMzcuaHRtbA==",
+      "id": "jh_MjYtMDQvMzcuaHRtbA==",
       "title": "沈荡 2 谷仓",
       "link": "https://fengwu.art/2026-04/37.html",
-      "date": "2026-04-15 14:22",
+      "date": "2026-04-15 14:22:51",
       "timestamp": 1776234171000,
       "description": "2025 年 11 月底参加了 32 号徒步的浙江嘉兴沈荡古镇徒步，主要是 3 块区域：艺术谷仓、沈荡老街、丰义山村。同样也是存下几十张照片，分多次发布。当日有人结婚，拍婚纱照：这也是32元一日游的项目😄",
       "source": "风舞心弦",
       "sourceUrl": "https://fengwu.art"
     },
     {
-      "id": "lilog_Y2V2cy5jb20vNDg4OC8=",
+      "id": "jh_Y2V2cy5jb20vNDg4OC8=",
       "title": "宗教",
       "link": "https://acevs.com/4888/",
-      "date": "2026-04-15 13:23",
+      "date": "2026-04-15 13:23:17",
       "timestamp": 1776230597000,
       "description": "没有信仰的人 和 各宗教 人数 这个问题让豆包卡壳了。无限循环下去了，为了不浪费算力，点击了暂停。希望豆包赶快修复。已反馈提交 信仰是干危险的事情时候产生的，比如打仗，走私，干违法的事情，航海，做大宗生意，创业，古代生孩子，没有天气预报的种",
       "source": "ACEVS",
       "sourceUrl": "https://acevs.com"
+    },
+    {
+      "id": "jh_LmNvbS8zMDY0Lmh0bWw=",
+      "title": "最近域名瘾又犯了，注册了几个无聊的域名",
+      "link": "https://www.aiwazi.com/3064.html",
+      "date": "2026-04-15 11:08:37",
+      "timestamp": 1776222517000,
+      "description": "不知怎么的，最近又莫名热衷上了淘域名，博客也长时间没更新，心思一门全在域名上，好像注册了好域名要发财了样，嘿嘿。 先来列举下最近注册的域名： 1、MOVFLY.COM(移动飞行) 词根拆解 MOV = Move（移动、动态、运转） FLY ",
+      "source": "爱娃子",
+      "sourceUrl": "https://www.aiwazi.com"
     },
     {
       "id": "jh_MjYtMDQvMzYuaHRtbA==",
@@ -727,6 +907,16 @@
       "sourceUrl": "https://fengwu.art"
     },
     {
+      "id": "jh_by5jb20vMjQ5OS5odG1s",
+      "title": "《北京怀柔兴阳小环线跑山》",
+      "link": "https://www.weiwenchao.com/2499.html",
+      "date": "2026-04-14 19:31:00",
+      "timestamp": 1776166260000,
+      "description": "&nbsp; &nbsp; &nbsp; &nbsp; 2026.4.11，晴，6-20&deg;C，东南风5级。今天在北京怀柔完成了兴阳线小环线的跑山。从NBIC出发，经过密云水库、鹿皮关长城、白河大峡谷、千尺珍珠瀑景区、水云间观景台、云",
+      "source": "魏文超's Blog",
+      "sourceUrl": "https://www.weiwenchao.com"
+    },
+    {
       "id": "jh_ZS5uZXQvMzYwMi5odG1s",
       "title": "富士 XF18mm F1.4 R LM WR",
       "link": "https://www.mrhe.net/3602.html",
@@ -757,6 +947,16 @@
       "sourceUrl": "https://www.suiyan.cc"
     },
     {
+      "id": "jh_LzIwMjYtM3l1ZS5odG1s",
+      "title": "这个月忙着自娱自乐",
+      "link": "https://wonse.info/2026-3yue.html",
+      "date": "2026-04-14 17:15:29",
+      "timestamp": 1776158129000,
+      "description": "3月至今一直没有更新，主要两个原因：一是股市太惨了。阴跌了一个多月，亏了近30%个点，慢刀子割肉，身心俱疲。虽说股市就是玩玩，留下的也是赚的钱，但是不开心，也就没心情写日记。二是这个月一直在玩AI。先是用AI写了十年前曾和朋友探讨过的一部仙",
+      "source": "王鑫的小屋",
+      "sourceUrl": "https://wonse.info"
+    },
+    {
       "id": "jh_bnBpbmdsdW4uaHRtbA==",
       "title": "主题增加了外链跳转，重写了评论区",
       "link": "https://www.pgoj.top/archives/wailianpinglun.html",
@@ -767,6 +967,16 @@
       "sourceUrl": "https://www.pgoj.top"
     },
     {
+      "id": "jh_aW9uLXZpZXctY292ZXIv",
+      "title": "Typecho 迁移 Halo 完整教程：数据库视图解决表前缀 + 自动提取封面图",
+      "link": "https://wuqishi.com/typecho-halo-migration-view-cover/",
+      "date": "2026-04-14 16:21:00",
+      "timestamp": 1776154860000,
+      "description": "前言Typecho 作为经典的 PHP 博客系统，以轻量简洁著称；而 Halo 作为基于 Java 的现代博客平台，在功能丰富度与扩展性上更胜一筹。对我来说 WordPress 过于臃肿、Typecho 过于简陋，而Halo 恰好处于两者的",
+      "source": "吴蛋蛋",
+      "sourceUrl": "https://wuqishi.com"
+    },
+    {
       "id": "jh_dmVzLzM5MDQuaHRtbA==",
       "title": "阿富汗花朵钩织法",
       "link": "https://www.jfsay.com/archives/3904.html",
@@ -775,6 +985,16 @@
       "description": "（1）花心RI:5XR2: 5VR3:5 (X,V)（2）花瓣（换色）一个花瓣3个针目,共5个花瓣R1:换线立5CH,挑5个里山,再在第一个针目中带线,这时钩针上有7个针目,两两退线,到最后钩针上只剩一个线圈时,立一个CHR2:在第一个针目",
       "source": "静风说",
       "sourceUrl": "https://www.jfsay.com"
+    },
+    {
+      "id": "jh_Y2hpdmVzLzk0MS5odG1s",
+      "title": "贵州不知名小县城，建过皇都，发现“金字塔”，“加油”一词也起源于此！",
+      "link": "https://www.qynest.cn/archives/941.html",
+      "date": "2026-04-14 14:59:00",
+      "timestamp": 1776149940000,
+      "description": "　贵州省，偏居中国西南，素有“八山一水一分田”之说，是全国唯一没有平原支撑的省份，自汉武帝灭夜郎国将贵州纳入版图以来，这里一直都是中原王朝鞭长莫及、分合多变的边疆地区，所以也从来没有哪个中原王朝会考虑将皇都建在多山的贵州。　直至明朝灭亡后的",
+      "source": "清云小栈",
+      "sourceUrl": "https://www.qynest.cn"
     },
     {
       "id": "jh_YXJjaGl2ZXMvMjAzNA==",
@@ -845,296 +1065,6 @@
       "description": "Canon EOS R6m2 70mm 𝑓/4 1/160s ISO500 2026年3月5日 \"> WP的系统怎么说呢，有时候真的感觉一言难尽，庞杂的功能，丰富的插件、主题。几乎能满足所有人的需求，当然，也能满足我的需求。  之所以要做",
       "source": " obaby 𝐢‍𝐧⃝ void",
       "sourceUrl": "https://zhongxiaojie.cn"
-    },
-    {
-      "id": "jh_Y2V2cy5jb20vNDg4Ni8=",
-      "title": "搞笑最速曲线驯龙者",
-      "link": "https://acevs.com/4886/",
-      "date": "2026-04-14 08:57:55",
-      "timestamp": 1776128275000,
-      "description": "wife问二宝，列举几个中国行政单位，部级别的。 二宝说，故宫，博物馆。wife说这些都不是，给你一个提示管理孩子的地方。二宝说，少管所。正确是农业 水利 信访 等。 问过这个。他们仨又开始默写全国有多少个省份了。 最速曲线，让起伏的人生多",
-      "source": "ACEVS",
-      "sourceUrl": "https://acevs.com"
-    },
-    {
-      "id": "jh_MjAyNjA0MTQwODUzMjU=",
-      "title": "QQ群技术大神的消逝",
-      "link": "https://www.suiyan.cc/blog/20260414085325",
-      "date": "2026-04-14 08:53:25",
-      "timestamp": 1776128005000,
-      "description": "从QQ群的技术大神到AI时代的新神，探讨提问与思考的意义，以及人类在智能时代的角色变迁。",
-      "source": "碎言",
-      "sourceUrl": "https://www.suiyan.cc"
-    },
-    {
-      "id": "jh_b25nLXdyaXRlci5odG1s",
-      "title": "上架了一个没用的 APP",
-      "link": "https://blog.gudong.site/2026/04/14/yuntu-gudong-writer.html",
-      "date": "2026-04-14 08:00:00",
-      "timestamp": 1776124800000,
-      "description": "这两天，我把咕咚云图上架到了小米应用商店，一个对我来说挺特别的APP。说特别，因为这是我做的第一个付费应用。大概是2018、2019年那会，我之前做的都是免费或者开源的东西，没用过收费这回事。但当时慢慢发现，国内安卓用户的付费意愿好像...",
-      "source": "咕咚同学",
-      "sourceUrl": "https://blog.gudong.site"
-    },
-    {
-      "id": "jh_bHktd3JvbmcuaHRtbA==",
-      "title": "为什么你的\"AI 优先\"战略大概率是错的",
-      "link": "https://blog.gudong.site/2026/04/14/why-your-ai-first-strategy-probably-wrong.html",
-      "date": "2026-04-14 08:00:00",
-      "timestamp": 1776124800000,
-      "description": "为什么你的”AI优先”战略大概率是错的今天在X看到的一篇不错的文章，这篇文章讲的是一家25人公司怎么围绕AI重建整个工程流程。我自己读完很有感触——我每天都在大量使用AI，工作和个人项目基本都是在指挥AI完成，某种程度上我也在走这条路...",
-      "source": "咕咚同学",
-      "sourceUrl": "https://blog.gudong.site"
-    },
-    {
-      "id": "jh_b25nLXdyaXRlci5odG1s",
-      "title": "失而复得",
-      "link": "https://blog.gudong.site/2026/04/14/earphone-gudong-writer.html",
-      "date": "2026-04-14 08:00:00",
-      "timestamp": 1776124800000,
-      "description": "上周五，我把耳机弄丢了。说”弄丢”其实不太准确，准确说是找不到了。周三打球的时候把它放在球场边，回来的时候记得拿上了，但到了周五在工位上一摸口袋，空的，翻书包，也没有，工位抽屉挨个拉开，还是没有。这耳机是大概三周前买的，无线蓝牙，不是...",
-      "source": "咕咚同学",
-      "sourceUrl": "https://blog.gudong.site"
-    },
-    {
-      "id": "jh_MjYtMDQvMTUuaHRtbA==",
-      "title": "新博客上线",
-      "link": "https://fengwu.art/2026-04/15.html",
-      "date": "2026-04-13 22:00:12",
-      "timestamp": 1776088812000,
-      "description": "风舞心弦新博客，从前天启动测试，昨天正式与大家见面。这一次，我告别了陪伴多年的各类 PHP 源码博客程序，选择了基于 Java 开发的简笔记独立版系统。更新： 我把 2026 年 4 月 12 日定为新博客正式启用的时间，原来LiMhy 博",
-      "source": "风舞心弦",
-      "sourceUrl": "https://fengwu.art"
-    },
-    {
-      "id": "jh_ZS5uZXQvMzU5NS5odG1s",
-      "title": "网站搬家",
-      "link": "https://www.mrhe.net/3595.html",
-      "date": "2026-04-13 21:33:00",
-      "timestamp": 1776087180000,
-      "description": "恳请各位看官大老爷 Ctrl + F5 强制刷新一下缓存。本以为使用 typecho 能减少服务器压力，让服务更加稳定一点，没曾想还是不行，每天差不多 2-3 次无响应，只能重启才好，实在是受不了，于是就萌生了更换服务器的想法。国内的就不想",
-      "source": "飞絮落叶雪",
-      "sourceUrl": "https://www.mrhe.net"
-    },
-    {
-      "id": "jh_YnUtc2hpLTM3ZmFhN2Vh",
-      "title": "政治学的第一课不是学政治 ｜ 隐说 NO.19",
-      "link": "https://wangyurui.com/posts/yin-shuo-no-19-zheng-zhi-xue-de-di-yi-ke-bu-shi-37faa7ea",
-      "date": "2026-04-13 20:27:18",
-      "timestamp": 1776083238000,
-      "description": "本栏目《隐说》由原《棱镜通讯》分离而来，是我私人的阅读札记。近来所读之书、所阅之文、所订之栏，以及闲时偶想，皆汇于此。或摘其精要，或评其得失，或由一点生发开去，不求系统，但求真诚，乃一人独坐灯下的絮语。 1、政治学的第一课不是学政治 中国近",
-      "source": "太隐",
-      "sourceUrl": "https://wangyurui.com"
-    },
-    {
-      "id": "jh_aXZlcy8xODI5Lmh0bWw=",
-      "title": "2026年3月总结",
-      "link": "https://zhujianlin.com/archives/1829.html",
-      "date": "2026-04-13 18:18:13",
-      "timestamp": 1776075493000,
-      "description": "四月都已经过去快一半了，我这才想到对三月做个总结，实在是有点太晚，但缺了一个月，就算一句话，我也得安排上。\n\n\n\n我的博客已经很久没有打开了，距离上次发一篇博文已经许久了（手机APP上发的说说类不算），我这三月过得乱糟糟的，热爱和平的我，心",
-      "source": "织梦岁月",
-      "sourceUrl": "https://zhujianlin.com"
-    },
-    {
-      "id": "jh_bGtpbmcvP2lkPTEyMjE=",
-      "title": "重新出发，与身体和解",
-      "link": "https://zhujay.com/talking/?id=1221",
-      "date": "2026-04-13 17:40:41",
-      "timestamp": 1776073241000,
-      "description": "本文作者因家庭变故中断锻炼半年，如今事毕，开始恢复训练。作者详述了复健第一周的剧烈肌肉酸痛，以及进入第二周后的微妙变化——身体虽仍沉重，但呼吸渐稳，酸痛不再是折磨，而成为一种身体被重新唤醒的踏实信号。文章传递出一种平和坚韧的心态：经历过生活",
-      "source": "朱小呆",
-      "sourceUrl": "https://zhujay.com"
-    },
-    {
-      "id": "jh_MjYtMDQvMjQuaHRtbA==",
-      "title": "苏州东山24湾",
-      "link": "https://fengwu.art/2026-04/24.html",
-      "date": "2026-04-13 17:30:44",
-      "timestamp": 1776072644000,
-      "description": "2025年9月底跟随32号旅行团去了一次苏州东山24湾，这里是靠近太湖边的一个景点和古村。我们在山中行走，中间很多杂草挡住了路线，也经过了琵琶、橘子和板栗的树林。我报的是优惠促销活动，32块钱一个人，只包含来回路费，不包吃喝。干粮和水都是自",
-      "source": "风舞心弦",
-      "sourceUrl": "https://fengwu.art"
-    },
-    {
-      "id": "jh_MjYtMDQvMjAuaHRtbA==",
-      "title": "崇明-煜墅-海上兰桥 2",
-      "link": "https://fengwu.art/2026-04/20.html",
-      "date": "2026-04-13 17:21:24",
-      "timestamp": 1776072084000,
-      "description": "这是十几年前，我们家在崇明岛买了一栋房子，小区当时名为通用煜墅，后来改名海上兰桥。因房屋已于去年卖掉，之后应该不会再去了。仅留下些许照片，作为回忆：下面这两张，分别是手机和相机拍的，你们对比觉得哪个更好？最后这张是博主本人🤭",
-      "source": "风舞心弦",
-      "sourceUrl": "https://fengwu.art"
-    },
-    {
-      "id": "jh_MjYtMDQvMjEuaHRtbA==",
-      "title": "崇明-煜墅-海上兰桥 1",
-      "link": "https://fengwu.art/2026-04/21.html",
-      "date": "2026-04-13 17:10:03",
-      "timestamp": 1776071403000,
-      "description": "这是十几年前，我们家在崇明岛买了一栋房子，小区当时名为通用煜墅，后来改名海上兰桥。因房屋已于去年卖掉，之后应该不会再去了。仅留下些许照片，作为回忆：",
-      "source": "风舞心弦",
-      "sourceUrl": "https://fengwu.art"
-    },
-    {
-      "id": "jh_MjYtMDQvMTkuaHRtbA==",
-      "title": "上海 枫泾古镇",
-      "link": "https://fengwu.art/2026-04/19.html",
-      "date": "2026-04-13 16:54:45",
-      "timestamp": 1776070485000,
-      "description": "上海枫泾古镇是江南水乡的典型代表，拥有1500多年历史，以\"三步两座桥，一望十条港\"的水乡风貌和金山农民画闻名，是中国历史文化名镇。枫泾古镇距离我家或我平常工作的地方是很远的，且交通不便。忘记哪一次了，恰好前往一个客户公司路过那附近，就在下",
-      "source": "风舞心弦",
-      "sourceUrl": "https://fengwu.art"
-    },
-    {
-      "id": "jh_Ni0wNC8yMjg5Lmh0bWw=",
-      "title": "简笔记支持微信表情了",
-      "link": "https://note-star.cn/2026-04/2289.html",
-      "date": "2026-04-13 16:06:41",
-      "timestamp": 1776067601000,
-      "description": "今天开发了一下，支持微信表情了。发一些表情，好玩：大家也可以评论里发了，这是之前就有的阿鲁表情",
-      "source": "笔记星球",
-      "sourceUrl": "https://note-star.cn"
-    },
-    {
-      "id": "jh_aXZlcy8xODI0Lmh0bWw=",
-      "title": "三个月的奖励——耳机一个",
-      "link": "https://zhujianlin.com/archives/1824.html",
-      "date": "2026-04-13 13:36:15",
-      "timestamp": 1776058575000,
-      "description": "我们公司有一个活动，为了鼓励APP发帖，一个季度统计一次，按数量第一个奖励800块，第二名500块，第三名好像是300块吧，然后大家开始各种发，每天发人民日报的几句话的截图什么的，然后量很高，大半年过云了，可能他们不太好意思了，现在没这样了",
-      "source": "织梦岁月",
-      "sourceUrl": "https://zhujianlin.com"
-    },
-    {
-      "id": "jh_Y24vMjAyNi8wNC85MTUv",
-      "title": "虚惊一场",
-      "link": "https://zhongxiaojie.cn/2026/04/915/",
-      "date": "2026-04-13 13:26:35",
-      "timestamp": 1776057995000,
-      "description": "Canon EOS R6m2 70mm 𝑓/4 1/125s ISO500 2025年10月29日 \"> 春节过后，就去过一次台球厅，之前充的钱大概还剩个四百多。这次这么着急想去，是因为上次去的时候，感觉老板和员工全部都换了一个认识的也没",
-      "source": " obaby 𝐢‍𝐧⃝ void",
-      "sourceUrl": "https://zhongxiaojie.cn"
-    },
-    {
-      "id": "jh_c2xldHRlci13ZWVrbHkv",
-      "title": "胡拉图的周刊-第十五期",
-      "link": "https://hulatu.com/posts/2026/04/13/newsletter-weekly/",
-      "date": "2026-04-13 11:23:04",
-      "timestamp": 1776050584000,
-      "description": "周刊，暂别！",
-      "source": "胡拉图",
-      "sourceUrl": "https://hulatu.com"
-    },
-    {
-      "id": "jh_Y2V2cy5jb20vNDg4NC8=",
-      "title": "古代长城的作用可能和稀土的作用相同。",
-      "link": "https://acevs.com/4884/",
-      "date": "2026-04-13 10:54:03",
-      "timestamp": 1776048843000,
-      "description": "长城的作用？群山峻岭上修建的意义。关隘峡口修不错，是不是盐铁税收收入更高，防止有人走私，使游牧民族强大？ 每日思考，用不用ai？怎么用？假装没用？彻底不用？ 千问 你的这个视角非常犀利，直接跳出了“长城只是为了打仗”的传统思维。你提到的“税",
-      "source": "ACEVS",
-      "sourceUrl": "https://acevs.com"
-    },
-    {
-      "id": "jh_MjYtMDQvNDMuaHRtbA==",
-      "title": "【转载】制琴师的灵魂",
-      "link": "https://fengwu.art/2026-04/43.html",
-      "date": "2026-04-13 09:06:47",
-      "timestamp": 1776042407000,
-      "description": "《制作家的灵魂》，原作者：西班牙吉他制作家埃利亚斯·伯奈特。双手是制作家最珍视的工具。不仅仅是因为我们需要用双手把木料切割成形，以便制作一把新吉他，更重要的是，双手是我们“聆听”木料的最好工具。当我为一把新吉他选择木材的时候，我会用我的双手",
-      "source": "风舞心弦",
-      "sourceUrl": "https://fengwu.art"
-    },
-    {
-      "id": "jh_MjYtMDQvNDIuaHRtbA==",
-      "title": "【漫画】相机越先进，拍照越烂？",
-      "link": "https://fengwu.art/2026-04/42.html",
-      "date": "2026-04-13 09:01:48",
-      "timestamp": 1776042108000,
-      "description": "本漫画转自 胶片的味道 公众号：",
-      "source": "风舞心弦",
-      "sourceUrl": "https://fengwu.art"
-    },
-    {
-      "id": "jh_Ni0wNC8yMjg4Lmh0bWw=",
-      "title": "演示图片缩略图排列",
-      "link": "https://note-star.cn/2026-04/2288.html",
-      "date": "2026-04-13 08:59:06",
-      "timestamp": 1776041946000,
-      "description": "这是简笔记的新功能，日志图片排列。冬夜的风裹着细碎的星光，把城市的灯火揉成了温柔的模样。酒红色贝雷帽轻压着发梢，米白色针织衫裹住了所有寒意，红底雪花纹的围巾在颈间漾开暖意，像把一整个冬天的浪漫都系在了身上。身后的灯海如星河坠落，暖黄的光晕漫",
-      "source": "笔记星球",
-      "sourceUrl": "https://note-star.cn"
-    },
-    {
-      "id": "jh_Zy13cml0ZXIuaHRtbA==",
-      "title": "10 分钟，换了博客评论系统",
-      "link": "https://blog.gudong.site/2026/04/13/twikoo-gudong-writer.html",
-      "date": "2026-04-13 08:00:00",
-      "timestamp": 1776038400000,
-      "description": "博客换了新评论系统，从开始到搞定，只用了10分钟，说实话我自己都没想到。之前的评论系统用了好几年，一直有个硬伤——得注册GitHub账号才能评论。开发者倒是无所谓，但普通读者哪有GitHub账号，很多人想留言却留不了，挺亏的。有个读者...",
-      "source": "咕咚同学",
-      "sourceUrl": "https://blog.gudong.site"
-    },
-    {
-      "id": "jh_LzAwMDIzNy8uaHRtbA==",
-      "title": "摄影闲扯: 摄影的虚实之道——从技术入门到艺术创作的蜕变",
-      "link": "https://fengcblog.880200.xyz/article/000237/.html",
-      "date": "2026-04-13 04:52:51",
-      "timestamp": 1776027171000,
-      "description": "发布日期: 2026-04-13",
-      "source": "Fengc's Blog",
-      "sourceUrl": "https://fengcblog.880200.xyz"
-    },
-    {
-      "id": "jh_YXJjaGl2ZXMvMjY0Lw==",
-      "title": "哥哥，有点不对劲啊！",
-      "link": "https://www.baidage.com/archives/264/",
-      "date": "2026-04-13 01:50:00",
-      "timestamp": 1776016200000,
-      "description": "从昨天到现在，侧栏的在线人数一直居高不下。平常不会这样的，这是什么鬼意思！爬虫也不可能一直爬啊。我这小破站应该不会有人惦记吧。纠结中…这Fuckbook在干嘛？",
-      "source": "柏大哥",
-      "sourceUrl": "https://www.baidage.com"
-    },
-    {
-      "id": "jh_MjYtMDQvNDAuaHRtbA==",
-      "title": "我为什么不拍视频？",
-      "link": "https://fengwu.art/2026-04/40.html",
-      "date": "2026-04-12 20:38:51",
-      "timestamp": 1775997531000,
-      "description": "本文是2024年底的文章重新发，虽然过去一年半了，但我的情况和想法，大体上没有变。哪怕是现在 AI 视频遍地开花，我还是没有把视频当做主要方向的想法。原文如下：在短视频普及的今天，我为什么反而去拍静态的作品，而不拍视频，不去发布到各大平台呢",
-      "source": "风舞心弦",
-      "sourceUrl": "https://fengwu.art"
-    },
-    {
-      "id": "jh_YW4uY24vMTExMzI1Lw==",
-      "title": "川博之上古器物",
-      "link": "https://synyan.cn/111325/",
-      "date": "2026-04-12 20:37:46",
-      "timestamp": 1775997466000,
-      "description": "4月5日，一早计划参观四川博物院。之所以没选成都博物馆，是因为蓉博就在市中心，清明假期怕参观者太多，而偏居西郊 […]",
-      "source": "旅行漫记",
-      "sourceUrl": "https://synyan.cn"
-    },
-    {
-      "id": "jh_MjYtMDQvMzUuaHRtbA==",
-      "title": "什么叫抽象艺术？",
-      "link": "https://fengwu.art/2026-04/35.html",
-      "date": "2026-04-12 20:31:27",
-      "timestamp": 1775997087000,
-      "description": "因为我所发照片，特别是近期展览上翻拍的别人的作品，好几位博友说成很“抽象”，其实这些都挺具象的。于是我觉得，还是写一篇内容，聊聊什么叫抽象吧。这里主要说的是平面/摄影。但其他方面艺术品，也是差不多的概念。抽象艺术 是一种以非写实的方式呈现视",
-      "source": "风舞心弦",
-      "sourceUrl": "https://fengwu.art"
-    },
-    {
-      "id": "jh_YXJjaGl2ZXMvMjYwLw==",
-      "title": "很有意思的两张截图！",
-      "link": "https://www.baidage.com/archives/260/",
-      "date": "2026-04-12 19:22:00",
-      "timestamp": 1775992920000,
-      "description": "今天用AI组合了一个头像，这背景配合主角的眼神真是醉了。其实发这个头像也是作为文章的头图而已，今天的主要内容是吐槽下面两张图片里的内容！有意思的国度。真的很好奇，都找不出还有哪个国家有这么多APP是用来放款的，当然！除了龙国。在手机里随便划",
-      "source": "柏大哥",
-      "sourceUrl": "https://www.baidage.com"
     }
   ],
   "failed": 0
