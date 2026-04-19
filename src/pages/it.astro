@@ -1,17 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getSortedPosts } from '../utils/posts';
 
-const allPosts = (await getCollection('posts')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const allPosts = getSortedPosts();
 
 const itPosts = allPosts.filter(post => 
   post.data.category === '技术' || 
   post.data.tags?.some(tag => ['技术', 'IT', '编程', '开发'].includes(tag))
 );
 
-function formatDate(date: Date): string {
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
   return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
 }
 ---
@@ -36,10 +35,10 @@ function formatDate(date: Date): string {
                   <line x1="8" y1="2" x2="8" y2="6"></line>
                   <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
-              <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+              <time datetime={new Date(post.data.date).toISOString()}>{formatDate(post.data.date)}</time>
               </span>
             </div>
-            <p class="line-clamp-4">{post.data.excerpt || post.body.slice(0, 200)}</p>
+            <p class="line-clamp-4">{post.data.excerpt || String(post.body || '').slice(0, 200)}</p>
           </article>
         ))
       ) : (

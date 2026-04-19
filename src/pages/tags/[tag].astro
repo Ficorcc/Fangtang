@@ -1,11 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getAllPosts, getSortedPosts, getPostsByTag } from '../../utils/posts';
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('posts');
   const tagSet = new Set<string>();
-  allPosts.forEach(post => {
+  getAllPosts().forEach(post => {
     if (post.data.tags) {
       post.data.tags.forEach(tag => tagSet.add(tag));
     }
@@ -14,12 +13,10 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
-const allPosts = await getCollection('posts');
-const filteredPosts = allPosts
-  .filter(post => post.data.tags?.includes(tag))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const filteredPosts = getPostsByTag(tag || '');
 
-function formatDate(date: Date): string {
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
   return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
 }
 ---
@@ -36,7 +33,7 @@ function formatDate(date: Date): string {
       {filteredPosts.map(post => (
         <article class="post-card">
           <h2>
-            <a href={`/${post.slug}`} class="post-link">
+            <a href={`/${post.slug}.html`} class="post-link">
               {post.data.title}
             </a>
           </h2>
@@ -48,7 +45,7 @@ function formatDate(date: Date): string {
                 <line x1="8" y1="2" x2="8" y2="6"></line>
                 <line x1="3" y1="10" x2="21" y2="10"></line>
               </svg>
-              <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+              <time datetime={new Date(post.data.date).toISOString()}>{formatDate(post.data.date)}</time>
             </span>
             {post.data.category && (
               <span class="meta-item">

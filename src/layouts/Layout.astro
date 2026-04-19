@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import { siteConfig } from '../config';
-import { getCollection } from 'astro:content';
+import { getSortedPosts } from '../utils/posts';
 
 export interface Props {
   title?: string;
@@ -15,9 +15,7 @@ const {
 
 const siteName = siteConfig.title;
 
-const allPosts = (await getCollection('posts')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const allPosts = getSortedPosts();
 
 const searchData = allPosts.map(post => ({
   title: post.data.title,

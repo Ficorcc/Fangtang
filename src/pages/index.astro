@@ -1,18 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import { getSortedPosts } from '../utils/posts';
 
 const PAGE_SIZE = 4;
 const page: number = 1;
 
-const allPosts = (await getCollection('posts')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const allPosts = getSortedPosts();
+const sortedPosts = allPosts;
 
-const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
-const posts = allPosts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+const totalPages = Math.ceil(sortedPosts.length / PAGE_SIZE);
+const posts = sortedPosts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
-function formatDate(date: Date): string {
+function formatDate(dateStr: string): string {
+  const date = new Date(dateStr);
   return `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
 }
 
@@ -72,7 +72,7 @@ const MEMOS_SOURCE = 'https://memos.ficor.net/api/v1/memos';
               <line x1="8" y1="2" x2="8" y2="6"></line>
               <line x1="3" y1="10" x2="21" y2="10"></line>
             </svg>
-            <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+            <time datetime={new Date(post.data.date).toISOString()}>{formatDate(post.data.date)}</time>
           </span>
           {post.data.category && (
             <span class="meta-item">
@@ -96,7 +96,7 @@ const MEMOS_SOURCE = 'https://memos.ficor.net/api/v1/memos';
             </span>
           )}
         </div>
-        <p class="line-clamp-4">{post.data.excerpt || post.body.slice(0, 200)}</p>
+        <p class="line-clamp-4">{post.data.excerpt || String(post.body || '').slice(0, 200)}</p>
       </article>
     ))}
 
