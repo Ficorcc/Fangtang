@@ -5,6 +5,7 @@ import { getSortedPosts } from '../../utils/posts';
 const PAGE_SIZE = 4;
 
 export async function getStaticPaths() {
+  const PAGE_SIZE = 4;
   const allPosts = getSortedPosts();
   const totalPages = Math.ceil(allPosts.length / PAGE_SIZE);
   
