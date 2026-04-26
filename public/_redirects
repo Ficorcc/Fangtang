@@ -1,0 +1,15 @@
+/say       /say/       200
+/circle    /circle/    200
+/links     /links/     200
+/guestbook /guestbook/ 200
+/about     /about/     200
+/tags      /tags/      200
+/archive   /archive/   200
+/it        /it/        200
+/my        /my/        200
+
+/categories/:cat /categories/:cat/ 200
+/tags/:tag /tags/:tag/ 200
+/page/:num /page/:num/ 200
+
+/* /:splat/ 301

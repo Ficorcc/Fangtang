@@ -73,7 +73,7 @@ const MEMOS_SOURCE = 'https://memos.ficor.net/api/v1/memos';
 
     {posts.map((post) => (
       <article class="post-card">
-        <h2><a href={'/' + post.slug + '.html'}>{post.data.title}</a></h2>
+        <h2><a href={'/' + post.slug + '/'}>{post.data.title}</a></h2>
         <div class="post-meta">
           <span class="meta-item">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -121,7 +121,7 @@ const MEMOS_SOURCE = 'https://memos.ficor.net/api/v1/memos';
       ) : null}
 
       {pageNum > 1 ? (
-        <a href={pageNum === 2 ? '/' : `/page/${pageNum - 1}.html`} class="pagination-btn" title="上一页">
+        <a href={pageNum === 2 ? '/' : `/page/${pageNum - 1}/`} class="pagination-btn" title="上一页">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
@@ -137,7 +137,7 @@ const MEMOS_SOURCE = 'https://memos.ficor.net/api/v1/memos';
       <span class="pagination-current">第 {pageNum} 页</span>
 
       {pageNum < totalPages ? (
-        <a href={`/page/${pageNum + 1}.html`} class="pagination-btn" title="下一页">
+        <a href={`/page/${pageNum + 1}/`} class="pagination-btn" title="下一页">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
@@ -151,7 +151,7 @@ const MEMOS_SOURCE = 'https://memos.ficor.net/api/v1/memos';
       )}
 
       {pageNum < totalPages - 1 ? (
-        <a href={`/page/${totalPages}.html`} class="pagination-btn" title="最后一页">
+        <a href={`/page/${totalPages}/`} class="pagination-btn" title="最后一页">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="7 18 13 12 7 6"></polyline>
             <polyline points="13 18 19 12 13 6"></polyline>

@@ -1,0 +1,40 @@
+<div id="waline"></div>
+
+<script client:load>
+  (async function() {
+    try {
+      const style = document.createElement('link');
+      style.rel = 'stylesheet';
+      style.href = 'https://unpkg.com/@waline/client@v3/dist/waline.css';
+      document.head.appendChild(style);
+
+      const script = document.createElement('script');
+      script.src = 'https://unpkg.com/@waline/client@v3/dist/waline.umd.js';
+      
+      script.onload = function() {
+        if (window.Waline) {
+          window.Waline.init({
+            el: '#waline',
+            serverURL: 'https://waline.example.com',
+            lang: 'zh-CN',
+            dark: 'html[data-theme="dark"]',
+            meta: ['nick', 'mail', 'link'],
+            requiredMeta: ['nick', 'mail'],
+            login: 'enable',
+            wordLimit: 0,
+            pageSize: 10,
+            copyright: false,
+            emoji: [
+              'https://unpkg.com/@waline/emojis@1.2.0/weibo',
+              'https://unpkg.com/@waline/emojis@1.2.0/alus'
+            ]
+          });
+        }
+      };
+      
+      document.head.appendChild(script);
+    } catch (e) {
+      console.error('Waline load error:', e);
+    }
+  })();
+</script>

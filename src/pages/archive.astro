@@ -32,7 +32,7 @@ const archives = Array.from(archiveMap.entries());
             {posts.map(post => (
               <li>
                 <span class="archive-date">{new Date(post.data.date).getDate()}日</span>
-                <a href={post.slug + '.html'}>{post.data.title}</a>
+                <a href={post.slug + '/'}>{post.data.title}</a>
               </li>
             ))}
           </ul>

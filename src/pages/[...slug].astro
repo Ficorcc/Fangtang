@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { getSortedPosts } from '../utils/posts';
 import { siteConfig } from '../config';
+import Waline from '../components/Waline.astro';
 
 export async function getStaticPaths() {
   const allPosts = getSortedPosts();
@@ -84,7 +85,7 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
     <div class="post-author-copyright">
       <div class="author-info">
         <p><strong>文章作者：</strong> Ficor</p>
-        <p><strong>本文链接：</strong> <a href={`${siteConfig.url}/${post.slug}.html`} target="_blank">${siteConfig.url}/${post.slug}.html</a></p>
+        <p><strong>本文链接：</strong> <a href={`${siteConfig.url}/${post.slug}/`} target="_blank">${siteConfig.url}/${post.slug}/</a></p>
         <p><strong>版权声明：</strong> 采用 CC BY-NC-SA 4.0 许可协议，转载请注明出处。</p>
       </div>
     </div>
@@ -93,7 +94,7 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
     <div class="post-navigation">
       <div class="nav-container left">
         {prevPost && (
-          <a href={`/${prevPost.slug}.html`} class="nav-prev">
+          <a href={`/${prevPost.slug}/`} class="nav-prev">
             <span class="nav-arrow">←</span>
             <span class="nav-text">上一篇</span>
             <span class="nav-title">{prevPost.data.title}</span>
@@ -102,7 +103,7 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
       </div>
       <div class="nav-container right">
         {nextPost && (
-          <a href={`/${nextPost.slug}.html`} class="nav-next">
+          <a href={`/${nextPost.slug}/`} class="nav-next">
             <span class="nav-text">下一篇</span>
             <span class="nav-title">{nextPost.data.title}</span>
             <span class="nav-arrow">→</span>
@@ -111,56 +112,14 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
       </div>
     </div>
 
-    <!-- 评论表单 -->
+    <!-- Waline 评论区 -->
     <div id="comments-section" class="post-comments">
       <h3>评论</h3>
-      <form class="comment-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="comment-name">昵称</label>
-            <input type="text" id="comment-name" name="name" placeholder="请输入昵称" required />
-          </div>
-          <div class="form-group">
-            <label for="comment-email">邮箱</label>
-            <input type="email" id="comment-email" name="email" placeholder="请输入邮箱" required />
-          </div>
-          <div class="form-group">
-            <label for="comment-url">网址</label>
-            <input type="url" id="comment-url" name="url" placeholder="请输入网址（可选）" />
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="comment-content">评论内容</label>
-          <textarea id="comment-content" name="content" placeholder="键入内容..." rows="5" required></textarea>
-        </div>
-        <div class="form-actions">
-          <div class="comment-tools">
-            <button type="button" class="tool-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
-                <line x1="9" y1="9" x2="9.01" y2="9"></line>
-                <line x1="15" y1="9" x2="15.01" y2="9"></line>
-              </svg>
-            </button>
-            <button type="button" class="tool-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                <polyline points="21 15 16 10 5 21"></polyline>
-              </svg>
-            </button>
-            <button type="button" class="tool-btn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-              </svg>
-            </button>
-          </div>
-          <button type="submit" class="submit-btn">发送</button>
-        </div>
-      </form>
+      <Waline />
     </div>
   </article>
+
+
 
   <!-- Post Scroll Buttons -->
   <div class="post-scroll-buttons">
@@ -185,7 +144,6 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
   </div>
 
   <script>
-    // Remove global scroll buttons completely
     const globalButtons = document.querySelector('body > .scroll-buttons');
     if (globalButtons) {
       globalButtons.remove();
@@ -603,6 +561,32 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
       width: 36px;
       height: 36px;
     }
+  }
 
+  /* Waline 主题适配 - 不改变原有评论区容器样式 */
+  :global(:root) {
+    --waline-theme-color: var(--accent);
+    --waline-active-color: var(--accent-hover);
+    --waline-bgcolor: var(--bg);
+    --waline-bgcolor-light: var(--bg-card);
+    --waline-border-color: var(--border);
+    --waline-text-color: var(--text);
+    --waline-font-size: 1rem;
+  }
+
+  :global(html[data-theme='dark']),
+  :global(:root.dark) {
+    --waline-bgcolor: var(--bg);
+    --waline-bgcolor-light: var(--bg-card);
+    --waline-border-color: var(--border);
+  }
+
+  :global(#waline) {
+    --waline-theme-color: var(--accent);
+    --waline-active-color: var(--accent-hover);
+    --waline-bgcolor: var(--bg);
+    --waline-bgcolor-light: var(--bg-card);
+    --waline-border-color: var(--border);
+    --waline-text-color: var(--text);
   }
 </style>

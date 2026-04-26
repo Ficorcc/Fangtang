@@ -4,6 +4,7 @@ export default defineConfig({
   site: 'https://ficor.cc',
   output: 'static',
   build: {
-    format: 'file',
+    format: 'directory',
   },
+  trailingSlash: 'always',
 });
